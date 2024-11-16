@@ -20,34 +20,34 @@ let dayCount = 1
 
 let calendarHtml =  '' // HTMLを組み立てる変数
 
-index.Html += '<h1>' + year + '年' + month + '月' + today + '日' + '</hl>'
-index.Html += '<table>'
+calendarHtml += '<h1>' + year + '年' + month + '月' + today + '日' + '</hl>'
+calendarHtml += '<table>'
 
 for (let i = 0; i < weeks.length; i++){
-    index.Html += '<td>' + weeks[i] + '</td>'
+    calendarHtml += '<td>' + weeks[i] + '</td>'
 }
 
 for(let w = 0; w < 6; w++){
-    index.Html += '<tr>'
+    calendarHtml += '<tr>'
 
     for(let d = 0; d < 7; d++){
         if(w == 0 && d < startDay){
-            index.Html += '<td></td>'
+            calendarHtml += '<td></td>'
 
         } else if (dayCount > endDayCount){
-            index.Html += '<td></td>'
+            calendarHtml += '<td></td>'
 
         } else if (dayCount === today){
-            index.Html += "<td class='today'>" + dayCount + "</td>"
+            calendarHtml += "<td class='today'>" + dayCount + "</td>"
             dayCount++
 
         }else{
-            index.Html += '<td>' + dayCount + '</td>'
+            calendarHtml += '<td>' + dayCount + '</td>'
             dayCount++
         }
     }
-    index.Html += '</tr>'
+    calendarHtml += '</tr>'
 }
-index.Html += '</table>'
+calendarHtml += '</table>'
 
-document.querySelector('#calendar').innerHTML = index.Html
+document.querySelector('#calendar').innerHTML = calendarHtml
